@@ -1,0 +1,108 @@
+[
+  {
+    "ContainingType": "GameOfLifeAPI.Controllers.GameOfLifeController",
+    "Method": "GetFinalState",
+    "RelativePath": "api/boards/{id}/final",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "maxIterations",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GameOfLifeAPI.Controllers.GameOfLifeController",
+    "Method": "GetNextState",
+    "RelativePath": "api/boards/{id}/next",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GameOfLifeAPI.Controllers.GameOfLifeController",
+    "Method": "GetNextXStates",
+    "RelativePath": "api/boards/{id}/next/{x}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "x",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GameOfLifeAPI.Controllers.GameOfLifeController",
+    "Method": "LoadBoard",
+    "RelativePath": "api/boards/boards/load/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GameOfLifeAPI.Controllers.GameOfLifeController",
+    "Method": "CreateBoard",
+    "RelativePath": "api/boards/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "board",
+        "Type": "GameOfLifeAPI.Models.Board",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GameOfLifeAPI.Controllers.GameOfLifeController",
+    "Method": "SaveBoard",
+    "RelativePath": "api/boards/save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "board",
+        "Type": "GameOfLifeAPI.Models.Board",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pL9D/j8JTq3+YVDfT6us6qQ3s7zyGPX6G/qeBiFv+4U=",
+  "Source": "GameOfLifeAPI",
+  "BasePath": "_content/GameOfLifeAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

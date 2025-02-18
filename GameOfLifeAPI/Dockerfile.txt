@@ -1,0 +1,28 @@
+﻿# Use official .NET runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 5000
+ENV ASPNETCORE_URLS=http://+:5000
+
+# Use .NET SDK image for building the application
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+
+# Copy the project files and restore dependencies
+COPY ["GameOfLifeAPI/GameOfLifeAPI.csproj", "GameOfLifeAPI/"]
+RUN dotnet restore "GameOfLifeAPI/GameOfLifeAPI.csproj"
+
+# Copy the entire project directory and build the application
+COPY . .
+WORKDIR "/src/GameOfLifeAPI"
+RUN dotnet build -c Release -o /app/build
+
+# Publish the application
+FROM build AS publish
+RUN dotnet publish -c Release -o /app/publish --no-build
+
+# Final runtime image
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "GameOfLifeAPI.dll"]

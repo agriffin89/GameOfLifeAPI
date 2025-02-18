@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameOfLifeAPI</name>
+    </assembly>
+    <members>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.CreateBoard(GameOfLifeAPI.Models.Board)">
+            <summary>
+            Creates a new board with the given state.
+            </summary>
+            <param name="board">Board object containing the initial state.</param>
+            <returns>Returns the board ID upon success.</returns>
+            <response code="200">Successfully created board.</response>
+            <response code="400">Invalid board data provided.</response>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.GetNextState(System.Guid)">
+            <summary>
+            Gets the next state of the board.
+            </summary>
+            <param name="id">Board ID.</param>
+            <returns>Next state of the board.</returns>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.GetNextXStates(System.Guid,System.Int32)">
+            <summary>
+            Gets the state of the board after X generations.
+            </summary>
+            <param name="id">Board ID.</param>
+            <param name="x">Number of generations to simulate.</param>
+            <returns>Board state after X generations.</returns>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.GetFinalState(System.Guid,System.Int32)">
+            <summary>
+            Gets the final stabilized state of the board.
+            If the board does not stabilize within the max iterations, returns an error.
+            </summary>
+            <param name="id">Board ID.</param>
+            <param name="maxIterations">Maximum number of iterations to check for stability.</param>
+            <returns>Final state of the board or an error if unstable.</returns>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.SaveBoardsToFile">
+            <summary>
+            Saves board states to a file for persistence.
+            </summary>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.LoadBoardsFromFile">
+            <summary>
+            Loads board states from the file if it exists.
+            </summary>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.SaveBoard(GameOfLifeAPI.Models.Board)">
+            <summary>
+            Saves the current board state.
+            </summary>
+        </member>
+        <member name="M:GameOfLifeAPI.Controllers.GameOfLifeController.LoadBoard(System.Guid)">
+            <summary>
+            Loads a previously saved board state from storage.
+            </summary>
+            <param name="id">The unique identifier of the board.</param>
+            <returns>
+            Returns the stored board if found; otherwise, returns a 404 Not Found response.
+            </returns>
+            <response code="200">Successfully retrieved the board state.</response>
+            <response code="404">Board with the given ID was not found.</response>
+        </member>
+        <member name="P:GameOfLifeAPI.Models.Board.Id">
+            <summary>
+            Unique identifier for the board.
+            </summary>
+        </member>
+        <member name="P:GameOfLifeAPI.Models.Board.Rows">
+            <summary>
+            Number of rows in the board.
+            </summary>
+        </member>
+        <member name="P:GameOfLifeAPI.Models.Board.Cols">
+            <summary>
+            Number of columns in the board.
+            </summary>
+        </member>
+        <member name="P:GameOfLifeAPI.Models.Board.Grid">
+            <summary>
+            2D grid representation of the board.
+            </summary>
+        </member>
+        <member name="P:GameOfLifeAPI.Models.Board.State">
+            <summary>
+            String representation of the board.
+            </summary>
+        </member>
+        <member name="M:GameOfLifeAPI.Services.GameOfLifeService.GetNextState(System.Int32[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Computes the next state of the given board based on Conway's Game of Life rules.
+            </summary>
+            <param name="grid">Current state of the board.</param>
+            <param name="rows">Number of rows in the board.</param>
+            <param name="cols">Number of columns in the board.</param>
+            <returns>New state of the board after applying the rules.</returns>
+        </member>
+        <member name="M:GameOfLifeAPI.Services.GameOfLifeService.CountLiveNeighbors(System.Int32[0:,0:],System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Counts the number of live neighbors for a given cell in the grid.
+            </summary>
+            <param name="grid">Current state of the board.</param>
+            <param name="x">Row index of the cell.</param>
+            <param name="y">Column index of the cell.</param>
+            <param name="rows">Number of rows in the board.</param>
+            <param name="cols">Number of columns in the board.</param>
+            <returns>Number of live neighboring cells.</returns>
+        </member>
+        <member name="M:GameOfLifeAPI.Services.GameOfLifeService.GetFinalState(System.Int32[0:,0:],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Simulates the board's evolution until it reaches a stable state or a maximum number of iterations.
+            </summary>
+            <param name="grid">Initial state of the board.</param>
+            <param name="rows">Number of rows in the board.</param>
+            <param name="cols">Number of columns in the board.</param>
+            <param name="maxIterations">Maximum iterations before stopping.</param>
+            <returns>Final stable state of the board and a boolean indicating if it stabilized.</returns>
+        </member>
+        <member name="M:GameOfLifeAPI.Services.GameOfLifeService.GridToString(System.Int32[0:,0:])">
+            <summary>
+            Converts the board's state to a string representation for easy comparison.
+            </summary>
+            <param name="grid">Current state of the board.</param>
+            <returns>String representation of the board state.</returns>
+        </member>
+    </members>
+</doc>
