@@ -96,28 +96,6 @@ SQLite as the database for persistence.
 
 Docker support for easy deployment.
 
-🔹 Key Features
-
-Feature
-
-Description
-
-State Persistence
-
-Saves board states to a database.
-
-Next State Calculation
-
-Computes the next state of the board.
-
-Final State Detection
-
-Detects if the board has stabilized.
-
-Unit Tests
-
-Uses xUnit to test core logic.
-
 🧠 Thought Process
 
 The board state is represented as a 2D array of 0 (dead) and 1 (alive).
